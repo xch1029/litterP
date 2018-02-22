@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/hiIndex/hiIndex",
+    "pages/test/test",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "嗨饭卡",
+    "navigationBarTextStyle": "black"
+  }
+}

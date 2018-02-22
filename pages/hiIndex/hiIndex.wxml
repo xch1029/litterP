@@ -1,0 +1,26 @@
+<view class='bar'>
+  <view class='userinfo'>
+    <image src='{{userInfo.avatarUrl}}'></image>
+    <text>会员中心</text>
+  </view>
+  <view class='card'>
+    这里是卡片,没有图
+  </view>
+</view>
+
+ <view class='hot'>
+    <view wx:for="{{hotList}}" wx:key="{{index}}" class='hot-item'>
+      <view class='hot-item-text'>
+        <text class='hot-item-name'>{{item.name}}</text>
+        <text class='hot-item-info'>{{item.info}}</text>
+      </view>
+      <view class='hot-actions' wx:if="{{item.url}}">
+        <text>特惠</text>
+        <text>购买</text>
+      </view>
+      <view class='hot-actions' wx:else>
+        <text>激活</text>
+      </view>
+    </view>
+  </view>
+  
