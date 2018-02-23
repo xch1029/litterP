@@ -15,7 +15,8 @@ Page({
         name: '激活码',
         info: '线上购买无需激活，可直接享用'
       }
-    ]
+    ],
+    keyword: '',  // 餐厅搜索关键字
   },
 
   /**
@@ -86,5 +87,14 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  bindKeyInput(e) {
+    this.setData({
+      keyword: e.detail.value 
+    })
+  },
+  // 餐厅关键字搜索
+  searchHandle: function() {
+    console.log(this.data.keyword)
   }
 })

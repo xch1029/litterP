@@ -8,19 +8,27 @@
   </view>
 </view>
 
- <view class='hot'>
-    <view wx:for="{{hotList}}" wx:key="{{index}}" class='hot-item'>
-      <view class='hot-item-text'>
-        <text class='hot-item-name'>{{item.name}}</text>
-        <text class='hot-item-info'>{{item.info}}</text>
-      </view>
-      <view class='hot-actions' wx:if="{{item.url}}">
-        <text>特惠</text>
-        <text>购买</text>
-      </view>
-      <view class='hot-actions' wx:else>
-        <text>激活</text>
-      </view>
+<view class='hot'>
+  <view wx:for="{{hotList}}" wx:key="{{index}}" class='hot-item'>
+    <view class='hot-item-text'>
+      <text class='hot-item-name'>{{item.name}}</text>
+      <text class='hot-item-info'>{{item.info}}</text>
+    </view>
+    <view class='hot-actions' wx:if="{{item.url}}">
+      <text>特惠</text>
+      <text>购买</text>
+    </view>
+    <view class='hot-actions' wx:else>
+      <text>激活</text>
     </view>
   </view>
-  
+</view>
+
+<view class="search">
+  <view class="search-inner">
+    <input type="text" placeholder="搜索餐厅" value="{{keyword}}" bindinput="bindKeyInput" />
+    <view bindtap="searchHandle">
+      <icon type="search" size="20" color="" />
+    </view>
+  </view>
+</view> 
