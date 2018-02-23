@@ -1,4 +1,5 @@
-const app = getApp()
+const app = getApp();
+const api = require('../../api/api.js');
 Page({
 
   /**
@@ -42,13 +43,17 @@ Page({
         average: 84,
         distance: 16.32
       }
-    ]
+    ],
+    myUserInfo: {},  // 用户信息(非微信)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getUserInfo()
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -135,5 +140,22 @@ Page({
   // 餐厅关键字搜索
   searchHandle: function() {
     console.log(this.data.keyword)
+  },
+  // 获取用户信息
+  getUserInfo() {
+    wx.request({
+      url: api.userInfo,
+      success: (res) => {
+        this.setData({
+          myUserInfo: res.data
+        })
+      }
+    })
+  },
+  // 用户头像点击事件
+  avatarClickHandle() {
+    wx.navigateTo({
+      url: '/pages/user/user'
+    })
   }
 })

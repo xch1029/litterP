@@ -1,5 +1,5 @@
 <view class='bar'>
-  <view class='userinfo'>
+  <view class='userinfo' bindtap="avatarClickHandle">
     <image src='{{userInfo.avatarUrl}}'></image>
     <text>会员中心</text>
   </view>
@@ -14,7 +14,8 @@
     </view>
     <view class='hot-actions' wx:if="{{item.url}}">
       <text>特惠</text>
-      <text>购买</text>
+      <text wx:if="{{myUserInfo.vip}}">购买</text>
+      <text wx:else>已是会员</text>
     </view>
     <view class='hot-actions' wx:else>
       <text>激活</text>

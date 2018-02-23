@@ -3,7 +3,8 @@
     "pages/hiIndex/hiIndex",
     "pages/test/test",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/user/user"
   ],
   "window": {
     "backgroundTextStyle": "light",
