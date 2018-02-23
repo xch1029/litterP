@@ -3,9 +3,7 @@
     <image src='{{userInfo.avatarUrl}}'></image>
     <text>会员中心</text>
   </view>
-  <view class='card'>
-    这里是卡片,没有图.......
-  </view>
+  <image src="/static/img/banner.jpg"></image>
 </view>
 
 <view class='hot'>
@@ -31,4 +29,30 @@
       <icon type="search" size="20" color="" />
     </view>
   </view>
-</view> 
+</view>
+
+<view class='shop-wrapper'>
+  <template is="shopItem" wx:for="{{shops}}" wx:key="{{index}}" data="{{...item}}">
+  </template>
+</view>
+
+<!-- 
+  餐厅的展示模板
+  imgUrl: string
+  name: string
+  tag: string
+  price: number
+  average: number
+  distance: number
+-->
+<template name="shopItem">
+  <view class='shop-item'>
+    <view><image src='/static/img/eqcode.png'></image></view>
+    <view>
+      <view class='shop-name'>{{name}}</view>
+      <view><text class='shop-tag'>{{tag}}</text></view>
+      <view>价值<text class='shop-price'>{{price}}元</text></view>
+      <view class='shop-distance'>人均{{average}}元 · 距离{{distance}}公里</view>
+    </view>
+  </view>
+</template>

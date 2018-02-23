@@ -17,6 +17,32 @@ Page({
       }
     ],
     keyword: '',  // 餐厅搜索关键字
+    shops: [
+      {
+        imgUrl: '',
+        name: '洪崖洞老火锅',
+        tag: '招牌涮肉',
+        price: 48,
+        average: 107,
+        distance: 11.38
+      },
+      {
+        imgUrl: '',
+        name: '蒸明满福（文体路店）',
+        tag: '鸭舌5串',
+        price: 15,
+        average: 124,
+        distance: 15.48
+      },
+      {
+        imgUrl: '',
+        name: '小绵羊烧烤精良吧',
+        tag: '辣炒花蛤',
+        price: 30,
+        average: 84,
+        distance: 16.32
+      }
+    ]
   },
 
   /**
@@ -79,7 +105,20 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+    setTimeout(() => {
+      this.setData({
+        shops: [...this.data.shops,
+        {
+          imgUrl: '',
+          name: '小绵羊烧烤精良吧',
+          tag: '辣炒花蛤',
+          price: 30,
+          average: 84,
+          distance: 16.32
+        }
+        ]
+      })
+    }, 300)
   },
 
   /**
