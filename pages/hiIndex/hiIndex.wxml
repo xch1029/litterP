@@ -1,4 +1,5 @@
-<view class='bar'>
+<view class="{{activeToggle?'blur5':0}}">
+  <view class='bar'>
   <view class='userinfo' bindtap="avatarClickHandle">
     <image src='{{userInfo.avatarUrl}}'></image>
     <text>会员中心</text>
@@ -13,12 +14,12 @@
       <text class='hot-item-info'>{{item.info}}</text>
     </view>
     <view class='hot-actions' wx:if="{{item.url}}">
-      <text>特惠</text>
-      <text wx:if="{{myUserInfo.vip}}">购买</text>
-      <text wx:else>已是会员</text>
+      <text class="tag1">特惠</text>
+      <text class="tag2" wx:if="{{myUserInfo.vip}}">购买</text>
+      <text class="tag2" wx:else>已是会员</text>
     </view>
     <view class='hot-actions' wx:else>
-      <text>激活</text>
+      <text class="tag2" bindtap="activeHandle">激活</text>
     </view>
   </view>
 </view>
@@ -36,6 +37,19 @@
   <template is="shopItem" wx:for="{{shops}}" wx:key="{{index}}" data="{{...item}}">
   </template>
 </view>
+</view>
+
+
+<!-- 激活弹窗 -->
+<my-modal title="请输入激活码" toggle="{{activeToggle}}" height="25%">
+  <view class="modal-content">
+    <input type="text" placeholder="激活码" />
+    <view class="footer">
+      <text bindtap="cancelActive">取消</text>
+      <text>激活</text>
+    </view>
+  </view>
+</my-modal>
 
 <!-- 
   餐厅的展示模板

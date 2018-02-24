@@ -45,6 +45,7 @@ Page({
       }
     ],
     myUserInfo: {},  // 用户信息(非微信)
+    activeToggle: false,
   },
 
   /**
@@ -156,6 +157,17 @@ Page({
   avatarClickHandle() {
     wx.navigateTo({
       url: '/pages/user/user'
+    })
+  },
+  // 点击激活按钮
+  activeHandle(){
+    this.setData({
+      activeToggle: true
+    })
+  },
+  cancelActive(){
+    this.setData({
+      activeToggle: false
     })
   }
 })

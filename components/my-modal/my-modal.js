@@ -41,4 +41,5 @@ Component({
  * properties:
  *  title: 标题
  *  height: 高度
+ *  toggle: 开关
  */
