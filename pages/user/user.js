@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    toggle: false,  // 弹窗的开关
   },
 
   /**
@@ -94,4 +94,14 @@ Page({
       }
     })
   },
+  bindPhoneToggle() {
+    this.setData({
+      toggle: true
+    })
+  },
+  close() {
+    this.setData({
+      toggle: false
+    })
+  }
 })

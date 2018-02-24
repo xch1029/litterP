@@ -1,0 +1,12 @@
+<!--components/my-modal/my-modal.wxml-->
+<view class="{{toggle ? 'show my-modal' : 'hidden my-modal'}}">
+  <view
+    class="my-modal-inner"
+    style="height:{{height}};"
+  >
+    <text class="title">{{title}}</text>
+    <view class="content">
+      <slot></slot>
+    </view>
+  </view>
+</view>

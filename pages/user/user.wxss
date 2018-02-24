@@ -19,3 +19,36 @@
 	font-size: 14px;
 	border-top:1px solid rgba(0,0,0,0.1);
 }
+.content{
+	display: flex;
+	flex-direction: column;
+	height: 82%;
+	align-items: center;
+	padding: 10px;
+}
+.content .title{
+	text-align: center;
+}
+.content .code,.content .actions{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+.content .code button{
+	margin-right: 0
+}
+.content input{
+	border: 1px solid #ccc;
+	height:47px;
+}
+.content .code input{
+	width: 55%;
+}
+.content .phone,.content .code,.content .actions{
+	width: 80%;
+}
+.content .actions button{
+	margin: 0;
+	width:48%;
+}
