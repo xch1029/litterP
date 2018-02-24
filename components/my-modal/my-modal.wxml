@@ -1,5 +1,5 @@
 <!--components/my-modal/my-modal.wxml-->
-<view class="{{toggle ? 'show my-modal' : 'hidden my-modal'}}">
+<view class="{{toggle ? 'show my-modal' : 'hidden my-modal'}}" catchtouchmove="handleTouchMove">
   <view
     class="my-modal-inner"
     style="height:{{height}};"

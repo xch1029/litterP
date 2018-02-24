@@ -41,7 +41,7 @@
 
 
 <!-- 激活弹窗 -->
-<my-modal title="请输入激活码" toggle="{{activeToggle}}" height="25%">
+<my-modal title="请输入激活码" toggle="{{activeToggle}}" height="30%">
   <view class="modal-content">
     <input type="text" placeholder="激活码" />
     <view class="footer">

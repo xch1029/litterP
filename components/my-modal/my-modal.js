@@ -32,7 +32,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    handleTouchMove() {
+      console.log('没有其他动作，阻止事件冒泡')
+    }
   }
 })
 

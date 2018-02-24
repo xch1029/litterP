@@ -10,7 +10,6 @@
 	align-items: center;
 	transition: all 0.1s ease;
 	z-index:100;
-
 }
 .my-modal.hidden{
 	transform: scale(0);
@@ -28,9 +27,12 @@
 .title{
 	font-size: 22px;
 	text-align: center;
-	margin-top:10px;
+	height:40px;
+	line-height:40px;
+
 
 }
 .content{
-	height: 100%;
+	overflow: hidden;
+	height: calc(100% - 40px)
 }
