@@ -20,7 +20,8 @@ Page({
     keyword: '',  // 餐厅搜索关键字
     shops: [],
     myUserInfo: {},  // 用户信息(非微信)
-    activeToggle: false
+    activeToggle: false,
+    activeCode: '',  // 激活码
   },
 
   /**
@@ -157,9 +158,30 @@ Page({
       activeToggle: true
     })
   },
+  activeCodeInput(e){
+    this.setData({
+      activeCode: e.detail.value
+    })
+  },
   cancelActive(){
     this.setData({
       activeToggle: false
+    })
+  },
+  // 点击激活确定按钮
+  activeHandleOk() {
+    console.log(this.data.activeCode)
+    wx.showModal({
+      title: '温馨提示',
+      showCancel: false,
+      content: this.data.activeCode ? '激活码错误' : '请输入激活码',
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
   },
   getRandomUrl() {
@@ -201,4 +223,11 @@ Page({
   getRandomNum(start=5,end=25){
     return Math.floor(Math.random()*(end-start)+start)
   },
+  // 跳转到具体餐厅的详情页
+  jumpToShop(e){
+    const name = e.currentTarget.dataset.name
+    wx.navigateTo({
+      url: `/pages/shopShow/shopShow?name=${name}`
+    })
+  }
 })

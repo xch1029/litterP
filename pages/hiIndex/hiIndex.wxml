@@ -44,10 +44,10 @@
 <!-- 激活弹窗 -->
 <my-modal title="请输入激活码" toggle="{{activeToggle}}" height="30%">
   <view class="modal-content">
-    <input type="text" placeholder="激活码" />
+    <input type="text" value="{{activeCode}}" bindinput="activeCodeInput" />
     <view class="footer">
       <view hover-class="click-gray" bindtap="cancelActive">取消</view>
-      <view hover-class="click-gray">激活</view>
+      <view hover-class="click-gray" bindtap="activeHandleOk">激活</view>
     </view>
   </view>
 </my-modal>
@@ -73,7 +73,7 @@
   </view>
 
   <view class="shop-item-bottom">
-    <view hover-class="click-gray">
+    <view hover-class="click-gray" bindtap="jumpToShop" data-name="{{name}}">
       <image src="/static/img/home.png"></image>
       <text>餐厅</text>
     </view>
