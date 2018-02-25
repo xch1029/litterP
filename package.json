@@ -1,0 +1,20 @@
+{
+  "name": "litterP",
+  "version": "1.0.0",
+  "description": "* 弹窗组件 DONE\r * 弹框开启后，下面的页面不应该可以滑动 DONE\r * 首页并没有超出，但是却可以左右晃动",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xch1029/litterP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xch1029/litterP/issues"
+  },
+  "homepage": "https://github.com/xch1029/litterP#readme"
+}

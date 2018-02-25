@@ -102,6 +102,7 @@
 .shop-item{
   display: flex;
   align-items: center;
+  border-top: 1px solid rgba(0,0,0,0.1);
 }
 .shop-item>view:first-child{
   width: 80px;
@@ -111,8 +112,9 @@
   width: 100%;
   height: 100%;
 }
-.shop-item view:last-child{
+.shop-item>view:last-child{
   width: calc(100% - 80px);
+  padding-left: 15px;
 }
 .shop-item view:last-child>view{
   width: 100%;
@@ -134,6 +136,36 @@
 .shop-distance{
   
 }
+.shop-item-bottom{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-left: none;
+  border-right: none;
+  margin-bottom: 10px;
+}
+.shop-item-bottom>view{
+  width: 25%;
+  text-align: center;
+  border-left: 1px solid rgba(0,0,0,0.1);
+  height: 35px;
+  line-height: 35px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.shop-item-bottom>view image{
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+.shop-item-bottom>view:first-child{
+  border-left: none;
+}
+.shop-item-bottom text{
+  font-size: 14px;
+  color: #ccc;
+}
 
 .modal-content{
   height: 100%;
@@ -144,7 +176,7 @@
 }
 .modal-content input{
   width: 80%;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,0.1);
   height:35px;
   margin-top:15px;
 }
@@ -152,16 +184,16 @@
   display: flex;
   justify-content: space-around;
   width:100%;
-  border-top:1px solid #ccc;
+  border-top:1px solid rgba(0,0,0,0.1);
   height: 60px;
 }
-.modal-content .footer text{
+.modal-content .footer view{
   position: relative;
   width: 50%;
   text-align: center;
   line-height: 60px;
 }
-.modal-content .footer text:first-child::after{
+.modal-content .footer view:first-child::after{
   position: absolute;
   content: '';
   width:1px;

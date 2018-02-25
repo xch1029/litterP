@@ -34,6 +34,7 @@
 </view>
 
 <view class='shop-wrapper'>
+{{getRandomUrl()}}
   <template is="shopItem" wx:for="{{shops}}" wx:key="{{index}}" data="{{...item}}">
   </template>
 </view>
@@ -45,8 +46,8 @@
   <view class="modal-content">
     <input type="text" placeholder="激活码" />
     <view class="footer">
-      <text bindtap="cancelActive">取消</text>
-      <text>激活</text>
+      <view hover-class="click-gray" bindtap="cancelActive">取消</view>
+      <view hover-class="click-gray">激活</view>
     </view>
   </view>
 </my-modal>
@@ -62,12 +63,31 @@
 -->
 <template name="shopItem">
   <view class='shop-item'>
-    <view><image src='/static/img/eqcode.png'></image></view>
+    <view><image src="{{imgUrl}}"></image></view>
     <view>
       <view class='shop-name'>{{name}}</view>
       <view><text class='shop-tag'>{{tag}}</text></view>
       <view>价值<text class='shop-price'>{{price}}元</text></view>
       <view class='shop-distance'>人均{{average}}元 · 距离{{distance}}公里</view>
+    </view>
+  </view>
+
+  <view class="shop-item-bottom">
+    <view hover-class="click-gray">
+      <image src="/static/img/home.png"></image>
+      <text>餐厅</text>
+    </view>
+    <view hover-class="click-gray">
+      <image src="/static/img/location.png"></image>
+      <text>导航</text>
+    </view>
+    <view hover-class="click-gray">
+      <image src="/static/img/food.png"></image>
+      <text>享用</text>
+    </view>
+    <view hover-class="click-gray">
+      <image src="/static/img/book.png"></image>
+      <text>规则</text>
     </view>
   </view>
 </template>

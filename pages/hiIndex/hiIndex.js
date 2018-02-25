@@ -18,34 +18,9 @@ Page({
       }
     ],
     keyword: '',  // 餐厅搜索关键字
-    shops: [
-      {
-        imgUrl: '',
-        name: '洪崖洞老火锅',
-        tag: '招牌涮肉',
-        price: 48,
-        average: 107,
-        distance: 11.38
-      },
-      {
-        imgUrl: '',
-        name: '蒸明满福（文体路店）',
-        tag: '鸭舌5串',
-        price: 15,
-        average: 124,
-        distance: 15.48
-      },
-      {
-        imgUrl: '',
-        name: '小绵羊烧烤精良吧',
-        tag: '辣炒花蛤',
-        price: 30,
-        average: 84,
-        distance: 16.32
-      }
-    ],
+    shops: [],
     myUserInfo: {},  // 用户信息(非微信)
-    activeToggle: false,
+    activeToggle: false
   },
 
   /**
@@ -53,7 +28,7 @@ Page({
    */
   onLoad: function (options) {
     this.getUserInfo()
-
+    this.getShops()
 
     if (app.globalData.userInfo) {
       this.setData({
@@ -115,12 +90,15 @@ Page({
       this.setData({
         shops: [...this.data.shops,
         {
-          imgUrl: '',
-          name: '小绵羊烧烤精良吧',
-          tag: '辣炒花蛤',
-          price: 30,
-          average: 84,
-          distance: 16.32
+          imgUrl: this.getRandomUrl(),
+          name: this.getRandomName(),
+          tag: this.getRandomTag(),
+          price: this.getRandomNum(),
+          average: this.getRandomNum(),
+          distance: this.getRandomNum(),
+          x: "123",
+          y: "456",
+          phone: "10086"
         }
         ]
       })
@@ -153,6 +131,20 @@ Page({
       }
     })
   },
+  // 获取餐厅list
+  getShops(){
+    wx.request({
+      url: api.shopList,
+      success: (res) => {
+        this.setData({
+          shops: res.data.shops.map((item) => {
+            item.imgUrl = this.getRandomUrl()
+            return item
+          })
+        })
+      }
+    })
+  },
   // 用户头像点击事件
   avatarClickHandle() {
     wx.navigateTo({
@@ -169,5 +161,44 @@ Page({
     this.setData({
       activeToggle: false
     })
-  }
+  },
+  getRandomUrl() {
+    const num = Math.ceil(Math.random()*8)
+    return `/static/img/shop0${num}.png`
+  },
+  getRandomName(){
+    const names = [
+      '美丽一家亲',
+      '海鲜烧烤',
+      '串世纪烤肉吧',
+      '从你的世界路过',
+      '大胖子小排档',
+      '半饱日式甜心',
+      '金鹰尚美酒店',
+      '成都串串香',
+      '明国往事',
+      '鱼留纯',
+      '泰食寨',
+    ]
+    return names[Math.floor(Math.random()*names.length)]
+  },
+  getRandomTag(){
+    const tags = [
+      '台式甜心',
+      '虎皮凤爪',
+      '自制白珍珠奶茶',
+      '烤鸭',
+      '海胆山药豆腐',
+      '水牛城鸡翅',
+      '石锅三杯鸡',
+      '招牌米糕',
+      '鸡肉汤米粉',
+      '招牌锅底',
+      '大虾色拉',
+    ]
+    return tags[Math.floor(Math.random()*tags.length)]
+  },
+  getRandomNum(start=5,end=25){
+    return Math.floor(Math.random()*(end-start)+start)
+  },
 })
